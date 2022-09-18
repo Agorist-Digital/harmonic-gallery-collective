@@ -1,0 +1,23 @@
+---
+import Tag from "../../components/Tag.astro";
+import { getArtist } from "../../data/artist";
+import PostLayout, { classes } from "../../layouts/PostLayout.astro";
+
+const { id } = Astro.params
+const artist = await getArtist(id);
+
+const attributes = artist ? artist.attributes : {stageName: "oof", desc: "oof"}
+---
+<PostLayout>
+    <img class="w-full" src="/index.jpg" alt="" />
+        <div class="flex flex-row flex-wrap items-center mt-4">
+            <Tag>Surf Rock</Tag>
+            <Tag>Surf Rock</Tag>
+            <Tag>Surf Rock</Tag>
+            <Tag>Surf Rock</Tag>
+        </div>
+        <h1 class={classes.h1}>
+            {attributes.stageName}
+        </h1>
+        <p class={classes.p}>{attributes.description}</p>
+</PostLayout>
