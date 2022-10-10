@@ -1,0 +1,29 @@
+---
+import { dateToLocale } from "../data/date"
+import Tag from "./Tag.astro"
+
+export type Props = {
+    name: string;
+    description: string;
+    date: string;
+    id: string;
+}
+const { name, description, date, id } = Astro.props
+
+const descShort = description.substring(0, 240)
+const datePretty = dateToLocale(date)
+---
+<a class="no-underline group" href={`/artist/${id}`}>
+    <img class="shadow-lg w-full rounded-3xl" src="/index.jpg" />
+    <div class={`
+            shadow-xl transition-transform bg-hgc-white p-6
+            text-hgc-black rounded-3xl mb-4 translate-y-[-50%]
+            group-hover:translate-y-4
+    `}>
+        <div class="flex flex-row items-center justify-between">
+            <h1 class="roboto m-0 font-bold text-3xl">{name}</h1>
+            <Tag>{datePretty}</Tag>
+        </div>
+        <h2 class="roboto mt-3 font-md">{descShort}...</h2>
+    </div>
+</a>

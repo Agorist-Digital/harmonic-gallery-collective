@@ -1,0 +1,19 @@
+---
+import { Icon } from "../data/prop-subtypes";
+import LinkIcon from "./LinkIcon.astro";
+
+const INSTAGRAM_URL = "https://instagram.com/harmonicgallerycollective"
+---
+
+<footer class="w-full p-12 bg-hgc-white flex flex-row items-center justify-between flex-wrap gap-y-4">
+    <div class="flex flex-row items-center">
+        <LinkIcon icon={Icon.Twitter} w="2rem" h="2rem" />
+        <div class="w-4"></div>
+        <LinkIcon icon={Icon.Instagram} href={INSTAGRAM_URL} w="2rem" h="2rem" />
+    </div>
+    <span class="flex flex-row items-center text-hgc-black">
+        <LinkIcon icon={Icon.Copyright} w="2rem" h="rem" />
+        <div class="w-2"></div>
+        {new Date().getFullYear()} Harmonic Gallery Collective
+    </span>
+</footer>

@@ -1,0 +1,32 @@
+---
+import ArtistThumbnail from "../components/ArtistThumbnail.astro";
+import { getArtists } from "../data/artist";
+import Layout from "../layouts/Layout.astro";
+
+type Artist = {
+    id: string;
+    attributes: {
+        createdAt: string;
+        stageName: string;
+        description: string;
+    }
+}
+
+const artists = await getArtists()
+---
+<Layout>
+    <div class="w-full flex flex-col items-center h-min min-h-[calc(100vh-4rem)]">
+        <h1 class="text-5xl inter font-bolder text-hgc-white my-8">
+            Artists
+        </h1>
+        <div class="lg:max-w-[70ch] w-full px-8">
+            { artists.map((artist: Artist) => (
+                <ArtistThumbnail 
+                    id={artist.id}
+                    date={artist.attributes.createdAt}
+                    name={artist.attributes.stageName}
+                    description={artist.attributes.description}/>
+            ))}
+        </div>
+    </div>
+</Layout>

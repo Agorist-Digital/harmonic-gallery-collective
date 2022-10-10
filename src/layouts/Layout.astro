@@ -1,0 +1,35 @@
+---
+import NavMenu from "../components/NavMenu.astro";
+import Footer from "../components/Footer.astro";
+import "@fontsource/roboto";
+import "@fontsource/inter";
+---
+<head>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link rel="icon" href="logo.png">
+</head>
+<div class="bg-gradient h-full min-h-full w-full overflow-x-hidden">
+    <div class="pt-16 h-[100vh] w-full">
+        <NavMenu />
+        <slot />
+    </div>
+    <Footer />
+</div>
+
+<style is:global>
+    .bg-gradient {
+        background: linear-gradient(43deg, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    }
+
+    :root {
+        --hgc-white: #FCF2EE;
+        --hgc-black: #201335;
+        --hgc-accent: rgba(252,70,107,1);
+    }
+    .roboto {
+        font-family: "roboto";
+    }
+    .inter {
+        font-family: "inter";
+    }
+</style>
