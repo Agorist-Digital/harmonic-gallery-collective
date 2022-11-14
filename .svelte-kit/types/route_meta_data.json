@@ -1,0 +1,11 @@
+{
+	"/": [],
+	"/(postList)": [],
+	"/(postList)/news": [],
+	"/(post)": [
+		"src/routes/(post)/+layout.ts"
+	],
+	"/(post)/artist/[slug]": [
+		"src/routes/(post)/+layout.ts"
+	]
+}
