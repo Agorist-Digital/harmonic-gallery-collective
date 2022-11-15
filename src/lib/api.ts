@@ -10,12 +10,12 @@ type Post = {
 	description: string,
 };
 
-const fetchArtistPostList = async (start, stop): PostListResult[] => {
+export const fetchArtistPostList = async (start, stop): PostListResult[] => {
 	// TODO: implement
 	let postSample = fetchArtistPost(0);
 	let sampleList = []
 
-	for (int i = 0; i < stop - start; i++) {
+	for (let i = 0; i < stop - start; i++) {
 		sampleList.push(postSample);
 	}	
 
@@ -43,7 +43,7 @@ const fetchNewsPost = (id): Post => {
 
 // TODO: add post search features
 
-enum PostType = {
-	Artist: "artist",
-	News: "news",
+enum PostType {
+	Artist = "artist",
+	News = "news",
 }

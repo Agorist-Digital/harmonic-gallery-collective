@@ -1,44 +1,23 @@
 <script lang="ts">
 	import PostListItem from "$lib/PostListItem.svelte";
 	import PaginationTab from "$lib/PaginationTab.svelte";
+	export let posts = []
+	export let totalPosts = 0;
 
-	export let items = [
-		{
-			title: "Krew", 
-			description: "Krew is a stinky four piece Indie rock band based in Colorado. Combining various genres and styles, they have created a unique sound.",
-			imgSrc: "krew_sample.jpg",
-		},
-		{
-			title: "Krew", 
-			description: "Krew is a stinky four piece Indie rock band based in Colorado. Combining various genres and styles, they have created a unique sound.",
-			imgSrc: "krew_sample.jpg",
-		},
-		{
-			title: "Krew", 
-			description: "Krew is a stinky four piece Indie rock band based in Colorado. Combining various genres and styles, they have created a unique sound.",
-			imgSrc: "krew_sample.jpg",
-		},
-		{
-			title: "Krew", 
-			description: "Krew is a stinky four piece Indie rock band based in Colorado. Combining various genres and styles, they have created a unique sound.",
-			imgSrc: "krew_sample.jpg",
-		},
-		{
-			title: "Krew", 
-			description: "Krew is a stinky four piece Indie rock band based in Colorado. Combining various genres and styles, they have created a unique sound.",
-			imgSrc: "krew_sample.jpg",
-		},
-	];
-	
+	$: pages = Math.ceil(totalPosts / 4);
+	$: console.log("Pages: ", pages, ", posts: ", posts.length, ", total: ", totalPosts);
 	$: page = 1;
+	$: start = (page * 4) - 4;
+	$: stop = (page * 4);
+	$: postSlice = posts.slice(start, stop);
 </script>
 
-{#each items.slice(0, page) as item}
-	<PostListItem {...item} height="8rem" />
+{#each postSlice as post}
+	<PostListItem {...post} height="8rem" />
 	<br />
 {/each}
 
-<PaginationTab bind:current={page} pages=5 />
+<PaginationTab bind:current={page} pages={pages} />
 
 <style>
 	br {

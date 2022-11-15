@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
-	import { loadPost } from "./data.ts";
+	import { fetchArtistPostList } from "$lib/api.ts";
 
 	let post = {};
 	let pathChunks = $page.url.pathname.split('/');
@@ -10,12 +10,12 @@
 	let postId = pathChunks[2];
 
 	onMount(async () => {
-		post = await loadPost[postCategory](postId)
+		fetchArtistPostList(0, 1).then(p => {post = p[0]})
 	})
 </script>
 
 <div class="center-content">
-	<img src={post.imgUrl} />
+	<img src={post.imageUrl} />
 	<p>
 		<span class="title">{post.title}</span>
 		<br />

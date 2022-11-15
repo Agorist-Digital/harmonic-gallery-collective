@@ -46,6 +46,7 @@ declare module '$env/static/private' {
 	export const NAUTILUS_EXTENSION_DIR: string;
 	export const SSH_AUTH_SOCK: string;
 	export const DIRENV_DIR: string;
+	export const npm_package_dependencies_svelte_icons: string;
 	export const STRINGS: string;
 	export const npm_package_private: string;
 	export const SHELL_SESSION_ID: string;
@@ -76,6 +77,7 @@ declare module '$env/static/private' {
 	export const npm_package_readmeFilename: string;
 	export const CUPS_DATADIR: string;
 	export const NIX_PATH: string;
+	export const npm_package_devDependencies_svelte_loading_spinners: string;
 	export const SYSTEMD_EXEC_PID: string;
 	export const npm_package_scripts_build: string;
 	export const NIXPKGS_CONFIG: string;
@@ -265,6 +267,7 @@ declare module '$env/dynamic/private' {
 		NAUTILUS_EXTENSION_DIR: string;
 		SSH_AUTH_SOCK: string;
 		DIRENV_DIR: string;
+		npm_package_dependencies_svelte_icons: string;
 		STRINGS: string;
 		npm_package_private: string;
 		SHELL_SESSION_ID: string;
@@ -295,6 +298,7 @@ declare module '$env/dynamic/private' {
 		npm_package_readmeFilename: string;
 		CUPS_DATADIR: string;
 		NIX_PATH: string;
+		npm_package_devDependencies_svelte_loading_spinners: string;
 		SYSTEMD_EXEC_PID: string;
 		npm_package_scripts_build: string;
 		NIXPKGS_CONFIG: string;
